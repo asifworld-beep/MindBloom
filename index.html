@@ -159,6 +159,12 @@
             <span id="atmosphere-icon" class="text-lg">☀️</span>
           </button>
 
+          <!-- Quick How-To Guide / Tour CTA -->
+          <button id="btn-open-guide-modal" class="flex items-center space-x-1.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-medium px-3 py-1.5 rounded-xl shadow-md shadow-amber-500/20 text-xs sm:text-sm transition-all transform active:scale-95" title="Interactive Step-by-Step Guide & Sanctuary Tour">
+            <span>💡</span>
+            <span>How to Use</span>
+          </button>
+
           <!-- Quick Plant Action -->
           <button id="btn-open-plant-modal" class="flex items-center space-x-1.5 bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-medium px-3.5 py-1.5 rounded-xl shadow-md shadow-emerald-600/20 text-sm transition-all transform active:scale-95">
             <span>🌸</span>
@@ -193,6 +199,10 @@
           <button id="tab-nav-nursery" class="tab-btn px-3.5 py-1.5 text-sm font-medium rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-400 dark:hover:text-slate-100 dark:hover:bg-slate-800 flex items-center space-x-1.5 transition-colors">
             <span>🏆</span>
             <span>Nursery & Badges</span>
+          </button>
+          <button id="tab-nav-guide" class="tab-btn px-3.5 py-1.5 text-sm font-semibold rounded-lg text-amber-700 hover:text-amber-800 bg-amber-50 hover:bg-amber-100 dark:text-amber-300 dark:bg-amber-950/40 dark:hover:bg-amber-900/60 border border-amber-300 dark:border-amber-700/60 shadow-sm flex items-center space-x-1.5 transition-all">
+            <span>💡</span>
+            <span>How to Use</span>
           </button>
         </nav>
       </div>
@@ -932,6 +942,335 @@
 
       </section>
 
+    
+      <!-- ========================================== -->
+      <!-- VIEW 7: COMPREHENSIVE HOW-TO-USE & HELP SANCTUARY -->
+      <!-- ========================================== -->
+      <section id="view-guide" class="tab-content space-y-8">
+        
+        <!-- Sanctuary Guide Banner -->
+        <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-600 via-teal-700 to-slate-900 p-6 sm:p-10 text-white shadow-xl">
+          <div class="relative z-10 max-w-3xl space-y-4">
+            <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-white/15 backdrop-blur-md text-emerald-200 text-xs font-semibold border border-white/20">
+              <span>🌿</span>
+              <span>MindBloom User Manual & Sanctuary Guide</span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">How to Cultivate Inner Peace in MindBloom</h1>
+            <p class="text-emerald-100 text-sm sm:text-base leading-relaxed">
+              MindBloom transforms emotional reflection into a living digital ecosystem. Every thought you acknowledge sprouts as a unique flower, and every mindful action nurtures your mental well-being.
+            </p>
+            <div class="flex flex-wrap items-center gap-3 pt-2">
+              <button id="btn-guide-start-tour" class="px-5 py-2.5 rounded-2xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-sm shadow-lg transition-all transform active:scale-95 flex items-center space-x-2">
+                <span>✨</span>
+                <span>Launch Interactive Tour</span>
+              </button>
+              <button id="btn-guide-goto-garden" class="px-5 py-2.5 rounded-2xl bg-white/20 hover:bg-white/30 backdrop-blur-md text-white font-semibold text-sm transition-all border border-white/30 flex items-center space-x-2">
+                <span>🌿</span>
+                <span>Open Living Garden</span>
+              </button>
+            </div>
+          </div>
+          <!-- Decorative Background Elements -->
+          <div class="absolute -right-8 -bottom-8 w-64 h-64 bg-emerald-400/20 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="absolute right-12 top-6 text-7xl opacity-20 pointer-events-none select-none">🪷</div>
+        </div>
+
+        <!-- Beginner's Bloom Quest Checklist (Interactive!) -->
+        <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200/80 dark:border-slate-800">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800 gap-2">
+            <div>
+              <h2 class="text-lg sm:text-xl font-bold text-slate-800 dark:text-slate-100 flex items-center space-x-2">
+                <span>🎯</span>
+                <span>Beginner's Bloom Journey Checklist</span>
+              </h2>
+              <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">Tap each milestone as you explore your sanctuary to earn bonus Bloom XP!</p>
+            </div>
+            <span id="quest-score-badge" class="px-3.5 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 text-xs font-bold self-start sm:self-auto border border-emerald-300 dark:border-emerald-800">
+              0 / 6 Completed
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 mt-5" id="quest-list-container">
+            <!-- Quest 1 -->
+            <label class="quest-item flex items-start space-x-3 p-3.5 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-emerald-400 transition-all cursor-pointer bg-slate-50/50 dark:bg-slate-800/40">
+              <input type="checkbox" class="quest-checkbox mt-1 w-4 h-4 rounded text-emerald-600 focus:ring-emerald-500 accent-emerald-600" data-quest="1" data-xp="50">
+              <div class="flex-1 text-xs">
+                <span class="font-bold text-slate-800 dark:text-slate-200 block">1. Plant First Seed</span>
+                <span class="text-slate-500 dark:text-slate-400">Write a reflection or gratitude (+50 XP)</span>
+              </div>
+            </label>
+
+            <!-- Quest 2 -->
+            <label class="quest-item flex items-start space-x-3 p-3.5 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-emerald-400 transition-all cursor-pointer bg-slate-50/50 dark:bg-slate-800/40">
+              <input type="checkbox" class="quest-checkbox mt-1 w-4 h-4 rounded text-emerald-600 focus:ring-emerald-500 accent-emerald-600" data-quest="2" data-xp="15">
+              <div class="flex-1 text-xs">
+                <span class="font-bold text-slate-800 dark:text-slate-200 block">2. Tap Badal the Cloud</span>
+                <span class="text-slate-500 dark:text-slate-400">Click Badal in the sky for chai wisdom (+15 XP)</span>
+              </div>
+            </label>
+
+            <!-- Quest 3 -->
+            <label class="quest-item flex items-start space-x-3 p-3.5 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-emerald-400 transition-all cursor-pointer bg-slate-50/50 dark:bg-slate-800/40">
+              <input type="checkbox" class="quest-checkbox mt-1 w-4 h-4 rounded text-emerald-600 focus:ring-emerald-500 accent-emerald-600" data-quest="3" data-xp="15">
+              <div class="flex-1 text-xs">
+                <span class="font-bold text-slate-800 dark:text-slate-200 block">3. Tap Gullu the Sprout</span>
+                <span class="text-slate-500 dark:text-slate-400">Click Gullu the dancing squirrel for cheer (+15 XP)</span>
+              </div>
+            </label>
+
+            <!-- Quest 4 -->
+            <label class="quest-item flex items-start space-x-3 p-3.5 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-emerald-400 transition-all cursor-pointer bg-slate-50/50 dark:bg-slate-800/40">
+              <input type="checkbox" class="quest-checkbox mt-1 w-4 h-4 rounded text-emerald-600 focus:ring-emerald-500 accent-emerald-600" data-quest="4" data-xp="20">
+              <div class="flex-1 text-xs">
+                <span class="font-bold text-slate-800 dark:text-slate-200 block">4. Water / Sun Care</span>
+                <span class="text-slate-500 dark:text-slate-400">Use Water Can or Sun Wand on plants (+20 XP)</span>
+              </div>
+            </label>
+
+            <!-- Quest 5 -->
+            <label class="quest-item flex items-start space-x-3 p-3.5 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-emerald-400 transition-all cursor-pointer bg-slate-50/50 dark:bg-slate-800/40">
+              <input type="checkbox" class="quest-checkbox mt-1 w-4 h-4 rounded text-emerald-600 focus:ring-emerald-500 accent-emerald-600" data-quest="5" data-xp="25">
+              <div class="flex-1 text-xs">
+                <span class="font-bold text-slate-800 dark:text-slate-200 block">5. Pop a Stress Cloud</span>
+                <span class="text-slate-500 dark:text-slate-400">Click 'Pop Stress Clouds' & burst a worry (+25 XP)</span>
+              </div>
+            </label>
+
+            <!-- Quest 6 -->
+            <label class="quest-item flex items-start space-x-3 p-3.5 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-emerald-400 transition-all cursor-pointer bg-slate-50/50 dark:bg-slate-800/40">
+              <input type="checkbox" class="quest-checkbox mt-1 w-4 h-4 rounded text-emerald-600 focus:ring-emerald-500 accent-emerald-600" data-quest="6" data-xp="25">
+              <div class="flex-1 text-xs">
+                <span class="font-bold text-slate-800 dark:text-slate-200 block">6. Consult Lotus Oracle</span>
+                <span class="text-slate-500 dark:text-slate-400">Tap the Lotus in the pond for daily wisdom (+25 XP)</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Step-by-Step Interactive Guide Cards -->
+        <div class="space-y-6">
+          <div class="text-center max-w-xl mx-auto">
+            <h2 class="text-2xl font-extrabold text-slate-800 dark:text-slate-100">Step-by-Step Feature Manual</h2>
+            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">Master every tool, companion, and mindfulness ritual in MindBloom</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Card 1: Planting Thoughts -->
+            <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-sm border border-slate-200/80 dark:border-slate-800 flex flex-col justify-between hover:border-emerald-400 transition-all">
+              <div class="space-y-3">
+                <div class="w-12 h-12 rounded-2xl bg-pink-100 dark:bg-pink-950/60 text-pink-600 dark:text-pink-300 flex items-center justify-center text-2xl shadow-inner">
+                  ✍️
+                </div>
+                <h3 class="text-base font-bold text-slate-800 dark:text-slate-100">1. Reflect & Plant Seeds</h3>
+                <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                  Go to <strong class="text-emerald-600 dark:text-emerald-400">Reflect & Reframe</strong>. Select your mood emoji (Calm, Joy, Anxious, Heavy, Grateful). Write your thought or raw vent.
+                </p>
+                <div class="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl text-xs space-y-1.5 text-slate-600 dark:text-slate-300 border border-slate-100 dark:border-slate-800">
+                  <div><strong>Cognitive Pattern Detector:</strong> MindBloom automatically identifies cognitive distortions like <em>Catastrophizing</em>, <em>Imposter Syndrome</em>, or <em>Overthinking</em>.</div>
+                  <div><strong>Reframe & Flower:</strong> Write a compassionate reframe and select your flower (Rose, Sunflower, Lavender, Marigold, Jasmine, Lotus).</div>
+                </div>
+              </div>
+              <button class="mt-4 w-full py-2 rounded-xl text-xs font-semibold bg-emerald-50 hover:bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:hover:bg-emerald-900 dark:text-emerald-300 transition-colors" onclick="document.getElementById('tab-nav-plant').click()">
+                Try Planting a Thought →
+              </button>
+            </div>
+
+            <!-- Card 2: Interactive Garden Tools -->
+            <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-sm border border-slate-200/80 dark:border-slate-800 flex flex-col justify-between hover:border-sky-400 transition-all">
+              <div class="space-y-3">
+                <div class="w-12 h-12 rounded-2xl bg-sky-100 dark:bg-sky-950/60 text-sky-600 dark:text-sky-300 flex items-center justify-center text-2xl shadow-inner">
+                  🛠️
+                </div>
+                <h3 class="text-base font-bold text-slate-800 dark:text-slate-100">2. Living Garden Tool Belt</h3>
+                <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                  Above the canvas, switch between interactive tools for desktop and touch:
+                </p>
+                <ul class="text-xs space-y-2 text-slate-600 dark:text-slate-300">
+                  <li class="flex items-start space-x-2">
+                    <span>🔍</span>
+                    <span><strong>Inspect:</strong> Click any flower to open its reflection card, revisit the reframe, and play musical notes.</span>
+                  </li>
+                  <li class="flex items-start space-x-2">
+                    <span>💧</span>
+                    <span><strong>Water Can:</strong> Click or drag across plants to splash refreshing water drops and restore vitality.</span>
+                  </li>
+                  <li class="flex items-start space-x-2">
+                    <span>☀️</span>
+                    <span><strong>Sun Wand:</strong> Shower golden warm sparkles on plants to accelerate growth and blossom radiance.</span>
+                  </li>
+                  <li class="flex items-start space-x-2">
+                    <span>🦋</span>
+                    <span><strong>Butterflies & Koi:</strong> Click anywhere on canvas to spawn fluttering butterflies or feed swimming koi!</span>
+                  </li>
+                </ul>
+              </div>
+              <button class="mt-4 w-full py-2 rounded-xl text-xs font-semibold bg-sky-50 hover:bg-sky-100 text-sky-800 dark:bg-sky-950/60 dark:hover:bg-sky-900 dark:text-sky-300 transition-colors" onclick="document.getElementById('tab-nav-garden').click()">
+                Explore Garden Canvas →
+              </button>
+            </div>
+
+            <!-- Card 3: Badal & Gullu Mascots -->
+            <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-sm border border-slate-200/80 dark:border-slate-800 flex flex-col justify-between hover:border-amber-400 transition-all">
+              <div class="space-y-3">
+                <div class="w-12 h-12 rounded-2xl bg-amber-100 dark:bg-amber-950/60 text-amber-600 dark:text-amber-300 flex items-center justify-center text-2xl shadow-inner">
+                  🌧️
+                </div>
+                <h3 class="text-base font-bold text-slate-800 dark:text-slate-100">3. Meet Badal & Gullu</h3>
+                <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                  Your loyal emotional companions live right inside the canvas:
+                </p>
+                <div class="p-3 bg-amber-50/50 dark:bg-amber-950/30 rounded-xl text-xs space-y-2 border border-amber-200/60 dark:border-amber-900/40 text-slate-700 dark:text-slate-200">
+                  <div class="flex items-center space-x-2">
+                    <span class="text-lg">☁️</span>
+                    <div>
+                      <strong>Badal (The Fluffy Cloud):</strong> Tap Badal in the sky anytime to trigger wobble physics, cute speech bubbles, and warm chai wisdom!
+                    </div>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <span class="text-lg">🐿️</span>
+                    <div>
+                      <strong>Gullu (The Chipmunk Sprout):</strong> Tap Gullu dancing near the flowers for cheerful motivation, happy wiggles, and sprout energy (+15 XP).
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="mt-4 w-full py-2 rounded-xl text-xs font-semibold bg-amber-50 hover:bg-amber-100 text-amber-800 dark:bg-amber-950/60 dark:hover:bg-amber-900 dark:text-amber-300 transition-colors" onclick="document.getElementById('tab-nav-garden').click()">
+                Say Hello to Badal & Gullu →
+              </button>
+            </div>
+
+            <!-- Card 4: Stress Cloud Buster -->
+            <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-sm border border-slate-200/80 dark:border-slate-800 flex flex-col justify-between hover:border-purple-400 transition-all">
+              <div class="space-y-3">
+                <div class="w-12 h-12 rounded-2xl bg-purple-100 dark:bg-purple-950/60 text-purple-600 dark:text-purple-300 flex items-center justify-center text-2xl shadow-inner">
+                  ☁️
+                </div>
+                <h3 class="text-base font-bold text-slate-800 dark:text-slate-100">4. Stress Cloud Buster</h3>
+                <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                  Need a quick release from mental tension? Start the interactive mini-game:
+                </p>
+                <ol class="text-xs space-y-1.5 list-decimal list-inside text-slate-600 dark:text-slate-300">
+                  <li>Click <strong>"Pop Stress Clouds"</strong> in the garden tool bar.</li>
+                  <li>Drifting clouds with worries like <em>"Overthinking"</em>, <em>"Imposter Syndrome"</em>, and <em>"Catastrophizing"</em> will float into view.</li>
+                  <li>Click or tap them before they float away to burst them into colorful flower petals with satisfying chime audio!</li>
+                  <li>Build combo multipliers and earn Zen points.</li>
+                </ol>
+              </div>
+              <button class="mt-4 w-full py-2 rounded-xl text-xs font-semibold bg-purple-50 hover:bg-purple-100 text-purple-800 dark:bg-purple-950/60 dark:hover:bg-purple-900 dark:text-purple-300 transition-colors" onclick="document.getElementById('tab-nav-garden').click(); setTimeout(() => { const b = document.getElementById('btn-toggle-clouds'); if(b) b.click(); }, 300);">
+                Start Cloud Buster Mini-Game →
+              </button>
+            </div>
+
+            <!-- Card 5: Indian Mausam & Ambient Studio -->
+            <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-sm border border-slate-200/80 dark:border-slate-800 flex flex-col justify-between hover:border-teal-400 transition-all">
+              <div class="space-y-3">
+                <div class="w-12 h-12 rounded-2xl bg-teal-100 dark:bg-teal-950/60 text-teal-600 dark:text-teal-300 flex items-center justify-center text-2xl shadow-inner">
+                  🌦️
+                </div>
+                <h3 class="text-base font-bold text-slate-800 dark:text-slate-100">5. Indian Mausam & Audio</h3>
+                <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                  Customize the atmospheric vibe of your reflection sanctuary:
+                </p>
+                <div class="space-y-1.5 text-xs text-slate-600 dark:text-slate-300">
+                  <div><strong>🌧️ Monsoon (Sawan):</strong> Gentle pitter-patter rain, deep greens, and chai steam.</div>
+                  <div><strong>🌺 Vasant (Spring):</strong> Drifting pink blossom petals and cheerful birdsong.</div>
+                  <div><strong>☀️ Greeshma (Summer):</strong> Golden sun with Suraj Bhai smiling warmly.</div>
+                  <div><strong>🌫️ Shishir (Winter):</strong> Crisp morning mist and glowing marigold petals.</div>
+                  <div><strong>🌌 Raat (Night):</strong> Starry night sky with glowing fireflies.</div>
+                  <div class="pt-1"><strong>🎧 Ambient Studio:</strong> Click the headphone icon to mix Om Drone (136.1 Hz), Soft Rain, Birds, Wind Chimes, and Tibetan Singing Bowls!</div>
+                </div>
+              </div>
+              <button class="mt-4 w-full py-2 rounded-xl text-xs font-semibold bg-teal-50 hover:bg-teal-100 text-teal-800 dark:bg-teal-950/60 dark:hover:bg-teal-900 dark:text-teal-300 transition-colors" onclick="const sm = document.getElementById('soundscape-modal'); if (sm) sm.classList.remove('hidden');">
+                Open Ambient Soundscape Studio →
+              </button>
+            </div>
+
+            <!-- Card 6: Lotus Oracle, Alarms & Nursery -->
+            <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-sm border border-slate-200/80 dark:border-slate-800 flex flex-col justify-between hover:border-rose-400 transition-all">
+              <div class="space-y-3">
+                <div class="w-12 h-12 rounded-2xl bg-rose-100 dark:bg-rose-950/60 text-rose-600 dark:text-rose-300 flex items-center justify-center text-2xl shadow-inner">
+                  🪷
+                </div>
+                <h3 class="text-base font-bold text-slate-800 dark:text-slate-100">6. Daily Rituals & Analytics</h3>
+                <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                  Cultivate consistency with guided daily mindfulness tools:
+                </p>
+                <ul class="text-xs space-y-1.5 text-slate-600 dark:text-slate-300">
+                  <li><strong>🪷 Lotus Oracle:</strong> Click the floating pink lotus in the pond for your daily 3D card reflection prompt!</li>
+                  <li><strong>⏰ Zen Reminders:</strong> Set gentle browser alarms for morning intent, mid-day breathe, or evening gratitude.</li>
+                  <li><strong>📊 Emotional Weather:</strong> Track streaks, mood distribution, and energy vitality charts.</li>
+                  <li><strong>🌸 Thought Nursery:</strong> Search past thoughts, filter by tag, and export or import private journal backups.</li>
+                </ul>
+              </div>
+              <button class="mt-4 w-full py-2 rounded-xl text-xs font-semibold bg-rose-50 hover:bg-rose-100 text-rose-800 dark:bg-rose-950/60 dark:hover:bg-rose-900 dark:text-rose-300 transition-colors" onclick="document.getElementById('tab-nav-report').click()">
+                View Emotional Weather Trends →
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Frequently Asked Questions Accordion -->
+        <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200/80 dark:border-slate-800 space-y-4">
+          <h2 class="text-lg sm:text-xl font-bold text-slate-800 dark:text-slate-100 flex items-center space-x-2">
+            <span>❓</span>
+            <span>Frequently Asked Questions</span>
+          </h2>
+
+          <div class="space-y-3 text-xs sm:text-sm" id="guide-faq-accordion">
+            <!-- FAQ 1 -->
+            <details class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700/60 cursor-pointer group">
+              <summary class="font-bold text-slate-800 dark:text-slate-200 list-none flex justify-between items-center">
+                <span>Is my journal and reflection data private?</span>
+                <span class="text-emerald-500 font-bold group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <p class="mt-2 text-slate-600 dark:text-slate-400 leading-relaxed">
+                Yes, 100%! All your reflections, thoughts, streaks, and plant growth are saved purely on your own device via your browser's local storage. No thoughts are ever sent to external cloud servers or stored in any database.
+              </p>
+            </details>
+
+            <!-- FAQ 2 -->
+            <details class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700/60 cursor-pointer group">
+              <summary class="font-bold text-slate-800 dark:text-slate-200 list-none flex justify-between items-center">
+                <span>Why was audio not playing right away?</span>
+                <span class="text-emerald-500 font-bold group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <p class="mt-2 text-slate-600 dark:text-slate-400 leading-relaxed">
+                Modern web browsers (like Chrome, Safari, and Firefox) automatically mute audio on page load until the user clicks or taps anywhere on the screen. Clicking any tool, mascot, or sound toggle instantly awakens the Web Audio synthesizer.
+              </p>
+            </details>
+
+            <!-- FAQ 3 -->
+            <details class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700/60 cursor-pointer group">
+              <summary class="font-bold text-slate-800 dark:text-slate-200 list-none flex justify-between items-center">
+                <span>Can I use MindBloom on my mobile phone?</span>
+                <span class="text-emerald-500 font-bold group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <p class="mt-2 text-slate-600 dark:text-slate-400 leading-relaxed">
+                Yes! MindBloom is fully responsive and supports touch gestures. You can tap Badal or Gullu, drag your finger to water flowers with the Water Can, pop stress clouds, and view your journal on any phone or tablet screen.
+              </p>
+            </details>
+
+            <!-- FAQ 4 -->
+            <details class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700/60 cursor-pointer group">
+              <summary class="font-bold text-slate-800 dark:text-slate-200 list-none flex justify-between items-center">
+                <span>Are there keyboard shortcuts?</span>
+                <span class="text-emerald-500 font-bold group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <div class="mt-2 text-slate-600 dark:text-slate-400 leading-relaxed space-y-1">
+                <div>• <kbd class="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-700 font-mono text-[11px]">W</kbd> - Switch to Water Can tool</div>
+                <div>• <kbd class="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-700 font-mono text-[11px]">S</kbd> - Switch to Sun Wand tool</div>
+                <div>• <kbd class="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-700 font-mono text-[11px]">I</kbd> - Switch to Inspect mode</div>
+                <div>• <kbd class="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-700 font-mono text-[11px]">C</kbd> - Toggle Stress Cloud Buster mini-game</div>
+                <div>• <kbd class="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-700 font-mono text-[11px]">Esc</kbd> - Close any active modal or inspector</div>
+              </div>
+            </details>
+          </div>
+        </div>
+
+      </section>
+
     </main>
 
     <!-- Footer -->
@@ -1475,36 +1814,63 @@
         { btn: 'tab-nav-report', view: 'view-report' },
         { btn: 'tab-nav-alarms', view: 'view-alarms' },
         { btn: 'tab-nav-timeline', view: 'view-timeline' },
-        { btn: 'tab-nav-nursery', view: 'view-nursery' }
+        { btn: 'tab-nav-nursery', view: 'view-nursery' },
+        { btn: 'tab-nav-guide', view: 'view-guide' }
       ];
 
       tabs.forEach(({ btn, view }) => {
         const btnEl = document.getElementById(btn);
         if (!btnEl) return;
         btnEl.addEventListener('click', () => {
-          // Deactivate all
+          // Deactivate all tab buttons and hide all view contents
           tabs.forEach(t => {
             const b = document.getElementById(t.btn);
             const v = document.getElementById(t.view);
             if (b) {
-              b.classList.remove('active', 'text-emerald-700', 'bg-emerald-100/80', 'dark:bg-emerald-950', 'dark:text-emerald-300');
+              b.classList.remove(
+                'active',
+                'text-emerald-700', 'bg-emerald-100/80', 'dark:bg-emerald-950', 'dark:text-emerald-300',
+                'text-amber-800', 'bg-amber-100', 'dark:text-amber-300', 'dark:bg-amber-950/40',
+                'border-amber-300', 'dark:border-amber-700/60'
+              );
               b.classList.add('text-slate-600', 'dark:text-slate-400');
             }
-            if (v) v.classList.remove('active');
+            if (v) {
+              v.classList.remove('active');
+            }
           });
 
-          // Activate selected
-          btnEl.classList.add('active', 'text-emerald-700', 'bg-emerald-100/80', 'dark:bg-emerald-950', 'dark:text-emerald-300');
+          // Activate selected tab button
+          btnEl.classList.add('active');
+          if (btn === 'tab-nav-guide') {
+            btnEl.classList.add('text-amber-800', 'bg-amber-100', 'dark:text-amber-300', 'dark:bg-amber-950/40', 'border-amber-300');
+          } else {
+            btnEl.classList.add('text-emerald-700', 'bg-emerald-100/80', 'dark:bg-emerald-950', 'dark:text-emerald-300');
+          }
           btnEl.classList.remove('text-slate-600', 'dark:text-slate-400');
-          const viewEl = document.getElementById(view);
-          if (viewEl) viewEl.classList.add('active');
 
+          // Show selected view content
+          const viewEl = document.getElementById(view);
+          if (viewEl) {
+            viewEl.classList.add('active');
+          }
+
+          // Trigger view-specific renderers
           if (view === 'view-report') {
             renderCharts();
-          }
-          if (view === 'view-garden') {
+          } else if (view === 'view-garden') {
             resizeCanvas();
+            renderAll();
+          } else if (view === 'view-timeline') {
+            renderThoughtsList();
+          } else if (view === 'view-nursery') {
+            renderNursery();
+          } else if (view === 'view-alarms') {
+            renderCustomAlarms();
           }
+
+          // Smooth scroll to top of view
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         });
       });
 
@@ -1758,17 +2124,22 @@
         isMouseDownOnCanvas = false;
       });
 
-      // Canvas Click
-      canvas.addEventListener('click', (e) => {
+            // --- Robust Canvas Interaction Handler (Desktop Click & Mobile Touch) ---
+      function handleCanvasInteraction(mouseX, mouseY, isClick = true) {
+        if (!canvas) return;
         const rect = canvas.getBoundingClientRect();
-        const mouseX = e.clientX - rect.left;
-        const mouseY = e.clientY - rect.top;
+        const w = rect.width;
+        const h = rect.height;
 
-        // 0. Badal & Gullu Mascot Clicks
-        if (badalMascot.isHovered) {
-          badalMascot.wobbleVel += 0.35;
+        // Wake audio context on interaction
+        initAudio();
+
+        // 1. Direct Hit Test on Badal Mascot (Floating Rain Cloud)
+        const distToBadal = Math.hypot(badalMascot.x - mouseX, badalMascot.y - mouseY);
+        if (distToBadal < 55) {
+          badalMascot.wobbleVel += 0.45;
           badalMascot.speech = badalQuotes[Math.floor(Math.random() * badalQuotes.length)];
-          badalMascot.speechTimer = 260;
+          badalMascot.speechTimer = 280;
           playChime('wind');
           floatTexts.push({ x: badalMascot.x, y: badalMascot.y - 30, text: '☕ +15 XP Chai Wisdom', color: '#fed7aa', life: 70 });
           addXP(15);
@@ -1776,10 +2147,12 @@
           return;
         }
 
-        if (gulluMascot.isHovered) {
-          gulluMascot.wobbleVel += 0.4;
+        // 2. Direct Hit Test on Gullu Mascot (Cheerful Dancing Sprout Squirrel)
+        const distToGullu = Math.hypot(gulluMascot.x - mouseX, gulluMascot.y - mouseY);
+        if (distToGullu < 45) {
+          gulluMascot.wobbleVel += 0.5;
           gulluMascot.speech = gulluQuotes[Math.floor(Math.random() * gulluQuotes.length)];
-          gulluMascot.speechTimer = 260;
+          gulluMascot.speechTimer = 280;
           playChime('harp');
           floatTexts.push({ x: gulluMascot.x, y: gulluMascot.y - 30, text: '🌺 +15 XP Sprout Power', color: '#fbcfe8', life: 70 });
           addXP(15);
@@ -1787,38 +2160,91 @@
           return;
         }
 
-        // 1. Cloud Buster Game Click
-        if (isCloudGameActive && hoveredCloud) {
-          popStressCloud(hoveredCloud);
-          return;
+        // 3. Direct Hit Test on Stress Clouds if Cloud Buster Mini-Game is Active
+        if (isCloudGameActive) {
+          for (let i = stressClouds.length - 1; i >= 0; i--) {
+            const c = stressClouds[i];
+            if (!c.popped && mouseX >= c.x - c.w/2 && mouseX <= c.x + c.w/2 && mouseY >= c.y - c.h/2 && mouseY <= c.y + c.h/2) {
+              popStressCloud(c);
+              return;
+            }
+          }
         }
 
-        // 2. Lotus Oracle Click
-        if (isLotusHovered) {
+        // 4. Direct Hit Test on Sacred Lotus Oracle in the Pond
+        const pondX = w * 0.82;
+        const pondY = h * 0.85;
+        const distToLotus = Math.hypot(pondX - mouseX, pondY - mouseY);
+        if (distToLotus < 42) {
           openLotusWisdomModal();
           playChime('bowl');
-          spawnPondRipple(w * 0.82, h * 0.85);
+          spawnPondRipple(pondX, pondY);
           return;
         }
 
-        // 3. Plant Interaction Click
-        if (hoveredPlant) {
-          // Play musical pentatonic note and add spring wobble
-          playPlantNote(hoveredPlant.noteIndex || 0);
-          hoveredPlant.wobbleVelocity += 0.28;
+        // 5. Direct Hit Test on Plants in Garden Canvas
+        let hitPlant = null;
+        for (const p of plantsPositions) {
+          const distToPlant = Math.hypot(p.x - mouseX, p.y - mouseY);
+          if (distToPlant < (p.radius + 15)) {
+            hitPlant = p;
+            break;
+          }
+        }
 
+        if (hitPlant) {
+          playPlantNote(hitPlant.noteIndex || 0);
+          hitPlant.wobbleVelocity += 0.35;
           if (currentGardenTool === 'inspect') {
-            openPlantInspector(hoveredPlant.thought);
+            openPlantInspector(hitPlant.thought);
           } else if (currentGardenTool === 'water') {
-            waterSinglePlant(hoveredPlant);
+            waterSinglePlant(hitPlant);
           } else if (currentGardenTool === 'sun') {
-            sunSinglePlant(hoveredPlant);
+            sunSinglePlant(hitPlant);
           }
           return;
         }
 
-        // 4. Specific Tool Action when clicking ground or pond
+        // 6. Otherwise trigger current garden tool action at clicked position
         handleCanvasToolAction(mouseX, mouseY, true);
+      }
+
+      // Canvas Mouse Click
+      canvas.addEventListener('click', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+        handleCanvasInteraction(mouseX, mouseY, true);
+      });
+
+      // Canvas Mobile Touch Events (Full Touchscreen Support)
+      canvas.addEventListener('touchstart', (e) => {
+        if (e.touches && e.touches.length > 0) {
+          const rect = canvas.getBoundingClientRect();
+          const touch = e.touches[0];
+          const touchX = touch.clientX - rect.left;
+          const touchY = touch.clientY - rect.top;
+          isMouseDownOnCanvas = true;
+          lastCanvasMousePos = { x: touchX, y: touchY };
+          handleCanvasInteraction(touchX, touchY, true);
+        }
+      }, { passive: true });
+
+      canvas.addEventListener('touchmove', (e) => {
+        if (e.touches && e.touches.length > 0) {
+          const rect = canvas.getBoundingClientRect();
+          const touch = e.touches[0];
+          const touchX = touch.clientX - rect.left;
+          const touchY = touch.clientY - rect.top;
+          lastCanvasMousePos = { x: touchX, y: touchY };
+          if (currentGardenTool === 'water' || currentGardenTool === 'sun') {
+            handleCanvasToolAction(touchX, touchY, false);
+          }
+        }
+      }, { passive: true });
+
+      canvas.addEventListener('touchend', () => {
+        isMouseDownOnCanvas = false;
       });
 
       // Start animation loop
@@ -2198,6 +2624,7 @@
       const isSpring = currentMausam === 'spring';
       const isSummer = currentMausam === 'summer';
       const isWinter = currentMausam === 'winter';
+      const isSunset = (appState.user && appState.user.atmosphere === 'sunset');
 
       // 0. Seasonal Sky Ambience
       if (isMonsoon) {
@@ -3371,8 +3798,9 @@
         moodCounts[t.mood] = (moodCounts[t.mood] || 0) + 1;
       });
 
-      const labels = Object.keys(moodCounts);
-      const values = Object.values(moodCounts);
+      const hasMoodData = Object.keys(moodCounts).length > 0;
+      const labels = hasMoodData ? Object.keys(moodCounts) : ['Calm', 'Grateful', 'Hopeful'];
+      const values = hasMoodData ? Object.values(moodCounts) : [3, 2, 2];
       const palette = ['#10b981', '#3b82f6', '#f59e0b', '#ec4899', '#8b5cf6', '#64748b', '#ef4444', '#14b8a6'];
 
       moodDoughnutInstance = new Chart(doughnutCtx, {
@@ -3432,6 +3860,10 @@
           const timeInput = document.getElementById('custom-alarm-time');
           const labelInput = document.getElementById('custom-alarm-label');
           const time = timeInput.value;
+          if (!time) {
+            showToast('Please select a reminder time first ⏰', 'warning');
+            return;
+          }
           const label = labelInput.value.trim() || 'Mindful Reflection Check-in';
 
           const newAlarm = {
@@ -3548,6 +3980,23 @@
             </div>
             <span class="text-xs font-semibold text-emerald-600 dark:text-emerald-400">${p.type}</span>
             <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">${p.desc}</p>
+            ${isUnlocked ? `
+              <button type="button" class="mt-2.5 px-3 py-1 rounded-lg text-[11px] font-bold bg-emerald-100 hover:bg-emerald-200 text-emerald-800 dark:bg-emerald-950 dark:hover:bg-emerald-900 dark:text-emerald-200 transition-colors flex items-center space-x-1" onclick="
+                document.getElementById('tab-nav-plant').click();
+                setTimeout(() => {
+                  const sel = document.getElementById('input-plant-type');
+                  if (sel) {
+                    for(let i=0; i<sel.options.length; i++) {
+                      if (sel.options[i].text.includes('${p.name.split(' ')[0]}') || sel.options[i].value.includes('${p.name.split(' ')[0]}')) {
+                        sel.selectedIndex = i; break;
+                      }
+                    }
+                  }
+                }, 200);
+              ">
+                <span>🌱</span> <span>Plant This Seed →</span>
+              </button>
+            ` : ''}
           </div>
         `;
         catalogGrid.appendChild(item);
@@ -3764,6 +4213,43 @@
 
     // --- Ambient Soundscape Studio Multi-Track Mixer ---
     function initSoundscapeStudio() {
+      // 1. Preset Pills Handlers
+      const presets = {
+        'preset-rainy-haven': { drone: 30, rain: 75, birds: 0, chimes: 25, bowl: 10, label: 'Rainy Haven 🌧️' },
+        'preset-forest-morning': { drone: 20, rain: 0, birds: 70, chimes: 35, bowl: 15, label: 'Forest Sunrise 🕊️' },
+        'preset-deep-zen': { drone: 65, rain: 10, birds: 0, chimes: 20, bowl: 55, label: 'Deep Meditation 🧘' },
+        'preset-starry-night': { drone: 45, rain: 15, birds: 0, chimes: 50, bowl: 35, label: 'Starry Night ✨' }
+      };
+
+      Object.keys(presets).forEach(presetId => {
+        const pBtn = document.getElementById(presetId);
+        if (!pBtn) return;
+        pBtn.addEventListener('click', () => {
+          const p = presets[presetId];
+          const sliderDrone = document.getElementById('slider-drone');
+          const sliderRain = document.getElementById('slider-rain');
+          const sliderBirds = document.getElementById('slider-birds');
+          const sliderChimes = document.getElementById('slider-chimes');
+          const sliderBowl = document.getElementById('slider-bowl');
+
+          if (sliderDrone) { sliderDrone.value = p.drone; document.getElementById('val-drone').textContent = `${p.drone}%`; }
+          if (sliderRain) { sliderRain.value = p.rain; document.getElementById('val-rain').textContent = `${p.rain}%`; }
+          if (sliderBirds) { sliderBirds.value = p.birds; document.getElementById('val-birds').textContent = `${p.birds}%`; }
+          if (sliderChimes) { sliderChimes.value = p.chimes; document.getElementById('val-chimes').textContent = `${p.chimes}%`; }
+          if (sliderBowl) { sliderBowl.value = p.bowl; document.getElementById('val-bowl').textContent = `${p.bowl}%`; }
+
+          // Auto-start soundscape if not active
+          if (!soundscapeAudio.isPlaying) {
+            const powerBtn = document.getElementById('btn-toggle-soundscape-power');
+            if (powerBtn) powerBtn.click();
+          } else {
+            updateSoundscapeGains();
+          }
+          playChime('wind');
+          showToast(`Applied preset: ${p.label}`, 'success');
+        });
+      });
+
       const modal = document.getElementById('soundscape-modal');
       const openBtn = document.getElementById('btn-open-soundscape');
       const closeBtn = document.getElementById('btn-close-soundscape-modal');
@@ -3791,41 +4277,26 @@
         const valEl = document.getElementById(s.valId);
         if (el) {
           el.addEventListener('input', (e) => {
-            const val = parseInt(e.target.value);
+            const val = parseInt(e.target.value, 10);
             if (valEl) valEl.textContent = val + '%';
-            if (soundscapeAudio[s.prop]) {
+            if (soundscapeAudio[s.prop] && soundscapeAudio.ctx) {
               soundscapeAudio[s.prop].gain.setTargetAtTime(val / 100 * 0.25, soundscapeAudio.ctx.currentTime, 0.05);
             }
           });
         }
       });
 
-      // Preset buttons
-      const presets = {
-        'preset-rainy-haven': { drone: 20, rain: 65, birds: 15, chimes: 35, bowl: 15 },
-        'preset-forest-morning': { drone: 30, rain: 10, birds: 60, chimes: 40, bowl: 25 },
-        'preset-deep-zen': { drone: 60, rain: 0, birds: 10, chimes: 20, bowl: 55 },
-        'preset-starry-night': { drone: 45, rain: 20, birds: 5, chimes: 50, bowl: 40 }
-      };
-
-      Object.keys(presets).forEach(pId => {
-        const btn = document.getElementById(pId);
-        if (btn) {
-          btn.addEventListener('click', () => {
-            const p = presets[pId];
-            setSliderValue('slider-drone', 'val-drone', p.drone, 'droneGain');
-            setSliderValue('slider-rain', 'val-rain', p.rain, 'rainGain');
-            setSliderValue('slider-birds', 'val-birds', p.birds, 'birdsGain');
-            setSliderValue('slider-chimes', 'val-chimes', p.chimes, 'chimesGain');
-            setSliderValue('slider-bowl', 'val-bowl', p.bowl, 'bowlGain');
-            showToast('Loaded Soundscape Preset 🎧', 'info');
-          });
-        }
-      });
-
       if (muteBtn) {
         muteBtn.addEventListener('click', () => {
-          sliders.forEach(s => setSliderValue(s.id, s.valId, 0, s.prop));
+          sliders.forEach(s => {
+            const el = document.getElementById(s.id);
+            const valEl = document.getElementById(s.valId);
+            if (el) el.value = 0;
+            if (valEl) valEl.textContent = '0%';
+            if (soundscapeAudio[s.prop] && soundscapeAudio.ctx) {
+              soundscapeAudio[s.prop].gain.setTargetAtTime(0, soundscapeAudio.ctx.currentTime, 0.05);
+            }
+          });
           showToast('Muted all sound tracks', 'info');
         });
       }
@@ -3835,14 +4306,16 @@
       }
     }
 
-    function setSliderValue(sliderId, valId, val, prop) {
-      const el = document.getElementById(sliderId);
-      const valEl = document.getElementById(valId);
-      if (el) el.value = val;
-      if (valEl) valEl.textContent = val + '%';
-      if (soundscapeAudio[prop] && soundscapeAudio.ctx) {
-        soundscapeAudio[prop].gain.setTargetAtTime(val / 100 * 0.25, soundscapeAudio.ctx.currentTime, 0.05);
-      }
+    // --- Toggle Soundscape Studio Engine (Multi-Track) ---
+    function updateSoundscapeGains() {
+      if (!soundscapeAudio.isPlaying || !soundscapeAudio.ctx) return;
+      const t = soundscapeAudio.ctx.currentTime;
+      const getVal = (id) => (parseInt(document.getElementById(id)?.value, 10) || 0) / 100;
+      if (soundscapeAudio.droneGain) soundscapeAudio.droneGain.gain.setTargetAtTime(getVal('slider-drone') * 0.25, t, 0.05);
+      if (soundscapeAudio.rainGain) soundscapeAudio.rainGain.gain.setTargetAtTime(getVal('slider-rain') * 0.2, t, 0.05);
+      if (soundscapeAudio.birdsGain) soundscapeAudio.birdsGain.gain.setTargetAtTime(getVal('slider-birds') * 0.25, t, 0.05);
+      if (soundscapeAudio.chimesGain) soundscapeAudio.chimesGain.gain.setTargetAtTime(getVal('slider-chimes') * 0.25, t, 0.05);
+      if (soundscapeAudio.bowlGain) soundscapeAudio.bowlGain.gain.setTargetAtTime(getVal('slider-bowl') * 0.25, t, 0.05);
     }
 
     function toggleSoundscapePower() {
@@ -3875,7 +4348,7 @@
 
         // 1. Om Drone (136.1 Hz)
         soundscapeAudio.droneGain = audioCtx.createGain();
-        soundscapeAudio.droneGain.gain.value = (parseInt(document.getElementById('slider-drone').value) || 40) / 100 * 0.25;
+        soundscapeAudio.droneGain.gain.value = (parseInt(document.getElementById('slider-drone')?.value, 10) || 40) / 100 * 0.25;
         const droneOsc = audioCtx.createOscillator();
         droneOsc.type = 'sine';
         droneOsc.frequency.value = 136.1;
@@ -3885,7 +4358,7 @@
 
         // 2. Procedural Rain (White/Pink noise buffer)
         soundscapeAudio.rainGain = audioCtx.createGain();
-        soundscapeAudio.rainGain.gain.value = (parseInt(document.getElementById('slider-rain').value) || 25) / 100 * 0.2;
+        soundscapeAudio.rainGain.gain.value = (parseInt(document.getElementById('slider-rain')?.value, 10) || 25) / 100 * 0.2;
         const bufferSize = audioCtx.sampleRate * 2;
         const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
         const output = noiseBuffer.getChannelData(0);
@@ -3905,7 +4378,7 @@
 
         // 3. Singing Bowl (Dual overtone resonance)
         soundscapeAudio.bowlGain = audioCtx.createGain();
-        soundscapeAudio.bowlGain.gain.value = (parseInt(document.getElementById('slider-bowl').value) || 20) / 100 * 0.25;
+        soundscapeAudio.bowlGain.gain.value = (parseInt(document.getElementById('slider-bowl')?.value, 10) || 20) / 100 * 0.25;
         const bowlOsc = audioCtx.createOscillator();
         bowlOsc.type = 'sine';
         bowlOsc.frequency.value = 261.63;
@@ -3915,7 +4388,7 @@
 
         // 4. Procedural Forest Birds Generator (Random scheduler)
         soundscapeAudio.birdsGain = audioCtx.createGain();
-        soundscapeAudio.birdsGain.gain.value = (parseInt(document.getElementById('slider-birds').value) || 30) / 100 * 0.25;
+        soundscapeAudio.birdsGain.gain.value = (parseInt(document.getElementById('slider-birds')?.value, 10) || 30) / 100 * 0.25;
         soundscapeAudio.birdsGain.connect(soundscapeAudio.masterGain);
         soundscapeAudio.birdsInterval = setInterval(() => {
           if (!soundscapeAudio.isPlaying || soundscapeAudio.birdsGain.gain.value <= 0.01) return;
@@ -3937,7 +4410,7 @@
 
         // 5. Procedural Bamboo Wind Chimes Generator
         soundscapeAudio.chimesGain = audioCtx.createGain();
-        soundscapeAudio.chimesGain.gain.value = (parseInt(document.getElementById('slider-chimes').value) || 35) / 100 * 0.25;
+        soundscapeAudio.chimesGain.gain.value = (parseInt(document.getElementById('slider-chimes')?.value, 10) || 35) / 100 * 0.25;
         soundscapeAudio.chimesGain.connect(soundscapeAudio.masterGain);
         soundscapeAudio.chimesInterval = setInterval(() => {
           if (!soundscapeAudio.isPlaying || soundscapeAudio.chimesGain.gain.value <= 0.01) return;
@@ -3962,6 +4435,233 @@
       }
     }
 
+
+    // --- Step-by-Step Interactive Guided Tour System ---
+    const tourSteps = [
+      {
+        icon: '🌿',
+        badge: 'Step 1 of 5 • Welcome',
+        title: 'Welcome to MindBloom',
+        desc: 'MindBloom is your personal zen reflection sanctuary. Here, mental reflections transform into living blossoms in a reactive garden, nurtured by thoughtful reframing, mindfulness rituals, and ambient nature sounds.',
+        highlight: 'Every thought you write sprouts as a living digital flower on your canvas!',
+        actionText: 'Next: Companions →',
+        onEnter: () => {
+          document.getElementById('tab-nav-garden').click();
+        }
+      },
+      {
+        icon: '🌧️',
+        badge: 'Step 2 of 5 • Companions',
+        title: 'Meet Badal & Gullu',
+        desc: 'Look at the sky and grass! Badal is your fluffy cloud mascot who shares witty chai wisdom and rain blessings. Gullu is the cheerful chipmunk sprout who dances and cheers you on. Tap either of them anytime on the canvas!',
+        highlight: 'Click Badal in the sky for chai quotes, or click Gullu for happy dances & +15 XP!',
+        actionText: 'Next: Garden Tools →',
+        onEnter: () => {
+          document.getElementById('tab-nav-garden').click();
+          if (badalMascot) badalMascot.wobbleVel += 0.3;
+        }
+      },
+      {
+        icon: '🛠️',
+        badge: 'Step 3 of 5 • Garden Tools',
+        title: 'Tending with the Tool Belt',
+        desc: 'Above the canvas, switch between Water Can (💧) to splash droplets, Sun Wand (☀️) to shower golden rays, Butterflies (🦋) to summon flutters, or Feed Koi (🐟) to make ripples in the pond. Click flowers in Inspect mode (🔍) to read your reframes.',
+        highlight: 'Click and drag with the Water Can or Sun Wand to continuously nurture your blossoms!',
+        actionText: 'Next: Plant Thoughts →',
+        onEnter: () => {
+          document.getElementById('tab-nav-garden').click();
+        }
+      },
+      {
+        icon: '✍️',
+        badge: 'Step 4 of 5 • Reflection',
+        title: 'Reflect, Reframe & Bloom',
+        desc: 'In the Reflect & Reframe studio, enter your mood and whatever is on your mind. MindBloom detects cognitive distortion patterns like Catastrophizing or Imposter Syndrome and guides you to craft a balanced reframe.',
+        highlight: 'Choose from 6 symbolic flowers: Rose, Sunflower, Lavender, Marigold, Jasmine, or Lotus!',
+        actionText: 'Next: Stress Busters →',
+        onEnter: () => {
+          document.getElementById('tab-nav-plant').click();
+        }
+      },
+      {
+        icon: '☁️',
+        badge: 'Step 5 of 5 • Sound & Games',
+        title: 'Mausam, Audio & Cloud Buster',
+        desc: 'Switch between Indian seasons (Monsoon, Vasant, Greeshma, Shishir, Raat). Click "Pop Stress Clouds" to burst worries into flower petals, or open the Ambient Soundscape (🎧) to mix rain, singing bowls, and bamboo chimes.',
+        highlight: 'You are all set to bloom! Visit the "How to Use" tab anytime for detailed guides.',
+        actionText: 'Start Blooming! 🌸',
+        onEnter: () => {
+          document.getElementById('tab-nav-garden').click();
+        }
+      }
+    ];
+
+    let currentTourIndex = 0;
+
+    function updateTourUI() {
+      const step = tourSteps[currentTourIndex];
+      if (!step) return;
+
+      document.getElementById('tour-step-icon').textContent = step.icon;
+      document.getElementById('tour-step-badge').textContent = step.badge;
+      document.getElementById('tour-title').textContent = step.title;
+      document.getElementById('tour-description').textContent = step.desc;
+      document.getElementById('tour-highlight-text').textContent = step.highlight;
+      document.getElementById('btn-tour-next').textContent = step.actionText;
+
+      const prevBtn = document.getElementById('btn-tour-prev');
+      if (currentTourIndex === 0) {
+        prevBtn.classList.add('hidden');
+      } else {
+        prevBtn.classList.remove('hidden');
+      }
+
+      // Update progress dots
+      document.querySelectorAll('.tour-dot').forEach((dot, idx) => {
+        if (idx === currentTourIndex) {
+          dot.classList.add('bg-emerald-600', 'w-6');
+          dot.classList.remove('bg-slate-300', 'dark:bg-slate-700', 'w-2.5');
+        } else {
+          dot.classList.remove('bg-emerald-600', 'w-6');
+          dot.classList.add('bg-slate-300', 'dark:bg-slate-700', 'w-2.5');
+        }
+      });
+
+      if (typeof step.onEnter === 'function') {
+        step.onEnter();
+      }
+    }
+
+    function openGuidedTour() {
+      currentTourIndex = 0;
+      updateTourUI();
+      const modal = document.getElementById('guided-tour-modal');
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function closeGuidedTour() {
+      const modal = document.getElementById('guided-tour-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    function initGuidedTour() {
+      const openBtn = document.getElementById('btn-open-guide-modal');
+      const bannerBtn = document.getElementById('btn-guide-start-tour');
+      const closeBtn = document.getElementById('btn-close-tour-modal');
+      const skipBtn = document.getElementById('btn-tour-skip');
+      const nextBtn = document.getElementById('btn-tour-next');
+      const prevBtn = document.getElementById('btn-tour-prev');
+      const gardenCta = document.getElementById('btn-guide-goto-garden');
+
+      if (openBtn) openBtn.addEventListener('click', openGuidedTour);
+      if (bannerBtn) bannerBtn.addEventListener('click', openGuidedTour);
+      if (closeBtn) closeBtn.addEventListener('click', closeGuidedTour);
+      if (skipBtn) skipBtn.addEventListener('click', closeGuidedTour);
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          if (currentTourIndex < tourSteps.length - 1) {
+            currentTourIndex++;
+            updateTourUI();
+            playChime('wind');
+          } else {
+            closeGuidedTour();
+            playChime('bell');
+            showToast('Welcome to your sanctuary! Have a peaceful reflection 🌸', 'success');
+          }
+        });
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          if (currentTourIndex > 0) {
+            currentTourIndex--;
+            updateTourUI();
+          }
+        });
+      }
+
+      if (gardenCta) {
+        gardenCta.addEventListener('click', () => {
+          document.getElementById('tab-nav-garden').click();
+        });
+      }
+    }
+
+    // --- Interactive Help Sanctuary & Quests ---
+    function initHelpSanctuary() {
+      const checkboxes = document.querySelectorAll('.quest-checkbox');
+      const badge = document.getElementById('quest-score-badge');
+
+      function updateQuestScore() {
+        let completed = 0;
+        checkboxes.forEach(cb => {
+          if (cb.checked) completed++;
+        });
+        if (badge) {
+          badge.textContent = `${completed} / ${checkboxes.length} Completed`;
+          if (completed === checkboxes.length) {
+            badge.classList.remove('bg-emerald-100', 'text-emerald-800');
+            badge.classList.add('bg-amber-400', 'text-slate-950', 'font-extrabold', 'animate-pulse');
+            badge.textContent = '🎉 All 6 Quests Mastered!';
+          }
+        }
+      }
+
+      checkboxes.forEach(cb => {
+        const questId = cb.dataset.quest;
+        const saved = localStorage.getItem(`mindbloom_quest_${questId}`);
+        if (saved === 'true') {
+          cb.checked = true;
+        }
+
+        cb.addEventListener('change', () => {
+          localStorage.setItem(`mindbloom_quest_${questId}`, cb.checked ? 'true' : 'false');
+          if (cb.checked) {
+            const xp = parseInt(cb.dataset.xp || '20', 10);
+            addXP(xp);
+            playChime('bell');
+            showToast(`Quest completed! +${xp} Bloom XP ✨`, 'success');
+          }
+          updateQuestScore();
+        });
+      });
+
+      updateQuestScore();
+
+      // Keyboard shortcuts
+      window.addEventListener('keydown', (e) => {
+        if (['input', 'textarea'].includes(document.activeElement.tagName.toLowerCase())) return;
+        const key = e.key.toLowerCase();
+        if (key === 'w') {
+          const btn = document.getElementById('tool-btn-water');
+          if (btn) btn.click();
+        } else if (key === 's') {
+          const btn = document.getElementById('tool-btn-sun');
+          if (btn) btn.click();
+        } else if (key === 'i') {
+          const btn = document.getElementById('tool-btn-inspect');
+          if (btn) btn.click();
+        } else if (key === 'c') {
+          const btn = document.getElementById('btn-toggle-clouds');
+          if (btn) btn.click();
+        } else if (key === 'escape') {
+          closeGuidedTour();
+          const modal = document.getElementById('plant-inspect-modal');
+          if (modal) modal.classList.add('hidden');
+          const sm = document.getElementById('soundscape-modal');
+          if (sm) sm.classList.add('hidden');
+          const lm = document.getElementById('lotus-wisdom-modal');
+          if (lm) lm.classList.add('hidden');
+        }
+      });
+    }
+
+    // Global audio unlock listener for mobile and modern browser autoplay policies
+    window.addEventListener('click', initAudio, { once: true });
+    window.addEventListener('touchstart', initAudio, { once: true });
+
+    // --- Quick Care Floating Controls in Hero & Master Render ---
     function initCareControls() {
       const waterBtn = document.getElementById('btn-care-water');
       const sunBtn = document.getElementById('btn-care-sun');
@@ -3986,7 +4686,8 @@
       if (breatheBtn) {
         breatheBtn.addEventListener('click', () => {
           playChime('bowl');
-          document.getElementById('alarm-trigger-modal').classList.remove('hidden');
+          const alarmModal = document.getElementById('alarm-trigger-modal');
+          if (alarmModal) alarmModal.classList.remove('hidden');
         });
       }
 
@@ -4024,7 +4725,7 @@
       calculatePlantPositions();
     }
 
-    // Initialize application when DOM is ready
+        // Initialize application when DOM is ready
     window.addEventListener('DOMContentLoaded', () => {
       initTabs();
       initAtmosphere();
@@ -4038,6 +4739,8 @@
       initArchiveFilters();
       initAlarms();
       initCareControls();
+      initGuidedTour();
+      initHelpSanctuary();
       renderAll();
       updateAudioUI();
     });
@@ -4178,6 +4881,65 @@
           Mute All
         </button>
       </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================== -->
+  <!-- STEP-BY-STEP INTERACTIVE GUIDED TOUR MODAL -->
+  <!-- ========================================== -->
+  <div id="guided-tour-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-md hidden transition-opacity duration-300">
+    <div class="bg-white dark:bg-slate-900 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-emerald-200/80 dark:border-emerald-800/60 relative overflow-hidden space-y-6">
+      
+      <!-- Top header with step badge and close -->
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+          <span class="text-2xl" id="tour-step-icon">🌿</span>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-3 py-1 rounded-full border border-emerald-200 dark:border-emerald-800" id="tour-step-badge">
+            Step 1 of 5
+          </span>
+        </div>
+        <button id="btn-close-tour-modal" class="p-1.5 rounded-xl text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+          ✕
+        </button>
+      </div>
+
+      <!-- Tour Content Carousel -->
+      <div class="space-y-3 min-h-[160px]" id="tour-carousel-content">
+        <h3 class="text-xl sm:text-2xl font-extrabold text-slate-800 dark:text-slate-100" id="tour-title">
+          Welcome to MindBloom
+        </h3>
+        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed" id="tour-description">
+          MindBloom is your personal zen reflection sanctuary. Here, mental reflections transform into living blossoms in a reactive garden, nurtured by thoughtful reframing, mindfulness rituals, and ambient nature sounds.
+        </p>
+        <div class="p-3.5 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-200/60 dark:border-emerald-900/60 text-xs text-emerald-900 dark:text-emerald-200 flex items-center space-x-3" id="tour-highlight-box">
+          <span class="text-2xl">🌱</span>
+          <span id="tour-highlight-text">Every thought you write sprouts as a living digital flower on your canvas!</span>
+        </div>
+      </div>
+
+      <!-- Step Progress Dots -->
+      <div class="flex items-center justify-center space-x-2 pt-2">
+        <span class="tour-dot w-2.5 h-2.5 rounded-full bg-emerald-600 transition-all"></span>
+        <span class="tour-dot w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-slate-700 transition-all"></span>
+        <span class="tour-dot w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-slate-700 transition-all"></span>
+        <span class="tour-dot w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-slate-700 transition-all"></span>
+        <span class="tour-dot w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-slate-700 transition-all"></span>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-slate-800">
+        <button id="btn-tour-prev" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors hidden">
+          ← Previous
+        </button>
+        <button id="btn-tour-skip" class="px-4 py-2 rounded-xl text-xs font-medium text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors">
+          Skip Tour
+        </button>
+        <button id="btn-tour-next" class="px-5 py-2.5 rounded-xl text-xs font-bold bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white shadow-md shadow-emerald-600/20 transition-all transform active:scale-95 ml-auto">
+          Next Step →
+        </button>
+      </div>
+
     </div>
   </div>
 
